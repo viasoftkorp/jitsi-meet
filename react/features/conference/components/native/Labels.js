@@ -5,6 +5,7 @@ import { TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
 
 import { JitsiRecordingConstants } from '../../../base/lib-jitsi-meet';
+import { areNotificationsVisible } from '../../../notifications';
 import {
     isNarrowAspectRatio,
     makeAspectRatioAware
@@ -363,7 +364,9 @@ function _mapStateToProps(state) {
     return {
         ..._abstractMapStateToProps(state),
         _reducedUI: state['features/base/responsive-ui'].reducedUI,
-        _visible: !isToolboxVisible(state) && !shouldDisplayTileView(state)
+        _visible: !isToolboxVisible(state)
+            && !shouldDisplayTileView(state)
+            && !areNotificationsVisible(state)
     };
 }
 

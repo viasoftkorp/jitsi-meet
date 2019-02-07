@@ -9,9 +9,6 @@ import { appNavigate } from '../../../app';
 import { connect, disconnect } from '../../../base/connection';
 import { getParticipantCount } from '../../../base/participants';
 import { Container, LoadingIndicator, TintedView } from '../../../base/react';
-import {
-    makeAspectRatioAware
-} from '../../../base/responsive-ui';
 import { TestConnectionInfo } from '../../../base/testing';
 import { createDesiredLocalTracks } from '../../../base/tracks';
 import { ConferenceNotification } from '../../../calendar-sync';
@@ -535,5 +532,5 @@ function _mapStateToProps(state) {
 }
 
 // $FlowFixMe
-export default reactReduxConnect(_mapStateToProps, _mapDispatchToProps)(
-    makeAspectRatioAware(Conference));
+export default reactReduxConnect(
+    _mapStateToProps, _mapDispatchToProps)(Conference);
